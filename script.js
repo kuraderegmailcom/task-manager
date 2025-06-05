@@ -8,4 +8,13 @@ function addTask() {
     alert("Task cannot be empty!");
     return;
   }
+   const newTask = {
+    id: ++taskId,
+    title: taskTitle,
+    completed: false
    }
+
+   tasks.push(newTask);
+  taskInput.value = "";
+  renderTasks();
+}
