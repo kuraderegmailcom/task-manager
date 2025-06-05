@@ -18,3 +18,20 @@ function addTask() {
   taskInput.value = "";
   renderTasks();
 }
+function renderTasks() {
+  const taskList = document.getElementById("taskList");
+  taskList.innerHTML = "";
+
+  tasks.forEach(task => {
+    const li = document.createElement("li");
+    li.textContent = task.title;
+    li.className = task.completed ? "completed" : "";
+
+    li.onclick = () => {
+      task.completed = !task.completed;
+      renderTasks();
+    };
+ 
+  });
+}
+
