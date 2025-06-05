@@ -31,7 +31,17 @@ function renderTasks() {
       task.completed = !task.completed;
       renderTasks();
     };
- 
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+    deleteBtn.onclick = (e) => {
+      e.stopPropagation(); // Prevent triggering complete toggle
+      tasks = tasks.filter(t => t.id !== task.id);
+      renderTasks();
+    };
+
+    li.appendChild(deleteBtn);
+    taskList.appendChild(li);
   });
 }
 
